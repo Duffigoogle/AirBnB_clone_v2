@@ -5,7 +5,7 @@ contents of the web_static folder"""
 from fabric.api import local
 import datetime
 
-def de_pack():
+def do_pack():
     """ Function to compress files i.e A Fabric script that
     generates a .tgz archive from the contents of the web_static """
     local("mkdir -p versions")
