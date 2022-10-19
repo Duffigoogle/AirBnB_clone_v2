@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 0. Hello Flask!
-This module uses Flask and starts 
+This module uses Flask and starts
 a Flask web application
 """
 
@@ -15,5 +15,6 @@ def hello_hbnb():
     """response text"""
     return "Hello HBNB!"
 
-if __name__ == "__main__":
+
+if__name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
