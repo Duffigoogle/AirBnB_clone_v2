@@ -4,7 +4,7 @@ import json
 
 
 class FileStorage:
-    """This class manages storage and serializes instances to a 
+    """This class manages storage and serializes instances to a
     JSON file and deserializes JSON file to instances"""
     __file_path = 'file.json'
     __objects = {}
@@ -20,7 +20,7 @@ class FileStorage:
         return FileStorage.
 
     def new(self, obj):
-        """Adds new object to storage dictionary 
+        """Adds new object to storage dictionary
         and set __object to given obj"""
         self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
 
@@ -63,14 +63,14 @@ class FileStorage:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             del self.__objects[key]
             self.save()
-        except:
+        except FileNotFoundError:
             pass
 
     def close(self):
         """Deserializes the JSON file to objects"""
         self.reload()
 
-     def classes(self):
+    def classes(self):
         """Returns a dictionary of valid classes and their references."""
         from models.base_model import BaseModel
         from models.user import User

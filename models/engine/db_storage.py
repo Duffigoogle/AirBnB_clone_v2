@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This module defines a DB storage 
+""" This module defines a DB storage
     Class to manage DataBase for AirBnB clone
 """
 import datetime
@@ -25,16 +25,16 @@ class DBStorage():
     def __init__(self):
         """Constructor"""
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
-                                      .format(getenv('HBNB_MYSQL_USER'), 
+                                      .format(getenv('HBNB_MYSQL_USER'),
                                               getenv('HBNB_MYSQL_PWD'),
-                                              getenv('HBNB_MYSQL_HOST'), 
+                                              getenv('HBNB_MYSQL_HOST'),
                                               getenv('HBNB_MYSQL_DB')),
                                       pool_pre_ping=True)
         if getenv('HBNB_ENV') == 'test':
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """Query on the current database session and returns all 
+        """Query on the current database session and returns all
         objects depending of the class name (argument cls)"""
 
         if cls is None:
@@ -55,7 +55,7 @@ class DBStorage():
             return dic
 
     def new(self, obj):
-        """Add the object to the current database session 
+        """Add the object to the current database session
         i.e (self.__session)"""
         self.__session.add(obj)
 
